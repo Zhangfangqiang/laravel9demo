@@ -15,6 +15,8 @@
 
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">用户列表</a></li>
         <!-- Authentication Links -->
         @guest
           @if (Route::has('login'))
@@ -43,6 +45,9 @@
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
               </form>
+
+              <a class="dropdown-item" href="{{ route('users.show', Auth::user()) }}">个人中心</a>
+              <a class="dropdown-item" href="{{ route('users.edit', Auth::user()) }}">编辑资料</a>
             </div>
           </li>
         @endguest
